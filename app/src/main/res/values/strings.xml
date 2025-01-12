@@ -11,4 +11,5 @@
     <string name="email_icon">Email\n</string>
     <string name="favorito">Favorito</string>
     <string name="modificar_contacto">Modificar Contacto</string>
+    <string name="barra_busqueda">Buscar contacto</string>
 </resources>

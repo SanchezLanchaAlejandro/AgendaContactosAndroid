@@ -31,7 +31,7 @@ class AddContactActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val isFavorite = binding.switchFavorite.isChecked
 
-            if (name.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty()) {
+            if (name.isNotEmpty() && phone.isNotEmpty()) {
                 val contactId = database.push().key
                 val contact = Contact(contactId, name, phone, email, isFavorite)
 

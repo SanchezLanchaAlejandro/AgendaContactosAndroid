@@ -26,30 +26,33 @@ class ContactAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactoViewHolder {
+        // Infla el diseño del ítem y crea un ViewHolder para cada elemento.
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)
         return ContactoViewHolder(vista)
     }
 
     override fun onBindViewHolder(holder: ContactoViewHolder, position: Int) {
+        // Vincula los datos del contacto con las vistas del ViewHolder en la posición actual.
         val contacto = listaContactos[position]
         holder.nombre.text = contacto.name
         holder.telefono.text = contacto.phone
         holder.correo.text = contacto.email
 
-        // Mostrar o no el ícono de favoritos
+        // Muestra u oculta la imagen de favorito según el estado del contacto.
         if (contacto.esFavorito) {
             holder.botonFavorito.visibility = View.VISIBLE
         } else {
             holder.botonFavorito.visibility = View.GONE
         }
 
-        // Configuración de los botones
+        // Configura los clics para eliminar, marcar como favorito o modificar el contacto.
         holder.botonEliminar.setOnClickListener { onEliminarClickListener(contacto) }
         holder.botonFavorito.setOnClickListener { onFavoritoClickListener(contacto) }
         holder.itemView.setOnClickListener { onClickListener(contacto) }
     }
 
     override fun getItemCount(): Int = listaContactos.size
+    // Devuelve el número total de elementos en la lista de contactos.
 
     // Función para actualizar la lista de contactos
     fun actualizarLista(nuevaListaContactos: List<Contact>) {
